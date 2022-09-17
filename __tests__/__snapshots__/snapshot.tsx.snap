@@ -23,6 +23,9 @@ exports[`renders homepage unchanged 1`] = `
         Calculate
       </button>
     </form>
+    <p>
+      RESULT: 
+    </p>
   </div>
 </div>
 `;

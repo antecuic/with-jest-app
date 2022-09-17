@@ -1,20 +1,24 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
+import { calculator } from "../utils/Calculator";
 import styles from "@/pages/index.module.css";
 
 export default function Home() {
   const [input, setInput] = useState<number>(1);
+  const [result, setResult] = useState<string>();
 
   const isButtonDisabled = !input || input < 1 || input > 1000;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("calculating...");
+    setResult(calculator.integerToRoman(input));
   };
 
   const inputChangeHandler = ({
     target: { value },
   }: ChangeEvent<HTMLInputElement>) => {
+    if (result) setResult(undefined);
+
     setInput(parseInt(value, 10));
   };
 
@@ -36,6 +40,7 @@ export default function Home() {
         </button>
       </form>
       {isButtonDisabled ? <p>Integer must be between 1 and 1000</p> : null}
+      <p>RESULT: {result}</p>
     </div>
   );
 }
