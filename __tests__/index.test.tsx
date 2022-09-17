@@ -26,7 +26,7 @@ describe("Home", () => {
     expect(button).toHaveAttribute("type", "submit");
   });
 
-  it("button should be disabled if input value is less than 1 ", () => {
+  it("button should be disabled if input value is less than 1", () => {
     render(<Home />);
 
     const input = screen.getByLabelText(formLabel);
@@ -41,7 +41,7 @@ describe("Home", () => {
     expect(note).toBeInTheDocument();
   });
 
-  it("button should be disabled if input value is greater than 1000", () => {
+  it("button is disabled if input value is greater than 1000", () => {
     render(<Home />);
 
     const input = screen.getByLabelText(formLabel);
@@ -56,7 +56,7 @@ describe("Home", () => {
     expect(note).toBeInTheDocument();
   });
 
-  it("button should be enabled input value is between 1 and 1000", () => {
+  it("button is enabled if input value is in range [1, 1000]", () => {
     render(<Home />);
 
     const input = screen.getByLabelText(formLabel);
@@ -70,5 +70,12 @@ describe("Home", () => {
     const note = screen.queryByText(noteText);
 
     expect(note).not.toBeInTheDocument();
+  });
+
+  it("renders result", () => {
+    render(<Home />);
+
+    const result = screen.queryByText(/result/i);
+    expect(result).toBeInTheDocument();
   });
 });
