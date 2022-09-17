@@ -1,3 +1,43 @@
 .container {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.warning {
+  color: orangered;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 200px;
+}
+
+.label {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.input {
+  margin-top: 8px;
+  padding: 4px 8px;
+}
+
+.button {
+  padding: 8px 0;
+  border: none;
+
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 24px;
+  font-size: 18px;
 }

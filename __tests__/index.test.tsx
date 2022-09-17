@@ -71,11 +71,4 @@ describe("Home", () => {
 
     expect(note).not.toBeInTheDocument();
   });
-
-  it("renders result", () => {
-    render(<Home />);
-
-    const result = screen.queryByText(/result/i);
-    expect(result).toBeInTheDocument();
-  });
 });

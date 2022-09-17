@@ -18,16 +18,28 @@ export default function Home() {
     target: { value },
   }: ChangeEvent<HTMLInputElement>) => {
     if (result) setResult(undefined);
+    if (!value) {
+      setInput(1);
+      return;
+    }
 
     setInput(parseInt(value, 10));
   };
 
   return (
     <div className={styles.container}>
-      <form data-testid="calc-roman" onSubmit={handleSubmit}>
-        <label>
+      {isButtonDisabled ? (
+        <p className={styles.warning}>Integer must be between 1 and 1000</p>
+      ) : null}
+      <form
+        className={styles.form}
+        data-testid="calc-roman"
+        onSubmit={handleSubmit}
+      >
+        <label className={styles.label}>
           Integer:
           <input
+            className={styles.input}
             type="number"
             value={input}
             onChange={inputChangeHandler}
@@ -35,12 +47,15 @@ export default function Home() {
             max={1000}
           />
         </label>
-        <button type="submit" disabled={isButtonDisabled}>
+        <button
+          className={styles.button}
+          type="submit"
+          disabled={isButtonDisabled}
+        >
           Calculate
         </button>
       </form>
-      {isButtonDisabled ? <p>Integer must be between 1 and 1000</p> : null}
-      <p>RESULT: {result}</p>
+      {result ? <p className={styles.result}>RESULT: {result}</p> : null}
     </div>
   );
 }

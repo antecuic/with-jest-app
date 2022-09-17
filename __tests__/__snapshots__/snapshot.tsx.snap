@@ -6,11 +6,15 @@ exports[`renders homepage unchanged 1`] = `
     class="container"
   >
     <form
+      class="form"
       data-testid="calc-roman"
     >
-      <label>
+      <label
+        class="label"
+      >
         Integer:
         <input
+          class="input"
           max="1000"
           min="1"
           type="number"
@@ -18,14 +22,12 @@ exports[`renders homepage unchanged 1`] = `
         />
       </label>
       <button
+        class="button"
         type="submit"
       >
         Calculate
       </button>
     </form>
-    <p>
-      RESULT: 
-    </p>
   </div>
 </div>
 `;
